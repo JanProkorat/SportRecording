@@ -1,0 +1,6 @@
+framework module Pods_SportRecording {
+  umbrella header "Pods-SportRecording-umbrella.h"
+
+  export *
+  module * { export * }
+}

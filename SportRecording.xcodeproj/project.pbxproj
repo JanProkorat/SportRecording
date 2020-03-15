@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DA358BD241E213B000631D3 /* ActivityListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */; };
+		3DA358C0241E2C8C000631D3 /* SportRecording.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DA358BE241E2C8C000631D3 /* SportRecording.xcdatamodeld */; };
+		3DA6895E241D0989009CEC15 /* colored-runners.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6895D241D0989009CEC15 /* colored-runners.jpg */; };
+		3DA68962241D1BC3009CEC15 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA68961241D1BC3009CEC15 /* ActivityTableViewCell.swift */; };
+		3DB53A522413A387004256ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53A512413A387004256ED /* AppDelegate.swift */; };
+		3DB53A542413A387004256ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53A532413A387004256ED /* SceneDelegate.swift */; };
+		3DB53A562413A387004256ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53A552413A387004256ED /* ViewController.swift */; };
+		3DB53A592413A387004256ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB53A572413A387004256ED /* Main.storyboard */; };
+		3DB53A5E2413A394004256ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB53A5D2413A394004256ED /* Assets.xcassets */; };
+		3DB53A612413A394004256ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB53A5F2413A394004256ED /* LaunchScreen.storyboard */; };
+		3DB53B0F2413FA82004256ED /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B0E2413FA82004256ED /* Activity.swift */; };
+		3DB53B1424153919004256ED /* NewActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1324153919004256ED /* NewActivityController.swift */; };
+		3DB53B2024158434004256ED /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */; };
+		3DB53B2124158434004256ED /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B182415841F004256ED /* MMDrawerVisualState.m */; };
+		3DB53B2224158434004256ED /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1C2415842B004256ED /* MMDrawerController.m */; };
+		3DB53B2324158434004256ED /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */; };
+		9F6F1D0A7A6B17480A155700 /* Pods_SportRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6EB6BBA87575B3CFEC626B /* Pods_SportRecording.framework */; };
+		BD53963E06D46D8BF5878496 /* Pods_SportRecording_SportRecordingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0E1571F516E24412AA8A76 /* Pods_SportRecording_SportRecordingUITests.framework */; };
+		D52899BA90B7A6547FD9475D /* Pods_SportRecordingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE384BF607A35ED32F22EB4B /* Pods_SportRecordingTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DB53A682413A395004256ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB53A462413A387004256ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DB53A4D2413A387004256ED;
+			remoteInfo = SportRecording;
+		};
+		3DB53A732413A395004256ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DB53A462413A387004256ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DB53A4D2413A387004256ED;
+			remoteInfo = SportRecording;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E0E1571F516E24412AA8A76 /* Pods_SportRecording_SportRecordingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportRecording_SportRecordingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListTableViewController.swift; sourceTree = "<group>"; };
+		3DA358BF241E2C8C000631D3 /* SportRecording.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportRecording.xcdatamodel; sourceTree = "<group>"; };
+		3DA6895D241D0989009CEC15 /* colored-runners.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "colored-runners.jpg"; sourceTree = "<group>"; };
+		3DA68961241D1BC3009CEC15 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		3DB53A4E2413A387004256ED /* SportRecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportRecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB53A512413A387004256ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DB53A532413A387004256ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3DB53A552413A387004256ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DB53A582413A387004256ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DB53A5D2413A394004256ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DB53A602413A394004256ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DB53A622413A394004256ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DB53A672413A395004256ED /* SportRecordingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportRecordingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB53A722413A395004256ED /* SportRecordingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportRecordingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB53B0E2413FA82004256ED /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		3DB53B1324153919004256ED /* NewActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityController.swift; sourceTree = "<group>"; };
+		3DB53B1624158416004256ED /* SportRecording-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SportRecording-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		3DB53B182415841F004256ED /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		3DB53B1924158422004256ED /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		3DB53B1A24158425004256ED /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		3DB53B1B24158429004256ED /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		3DB53B1C2415842B004256ED /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		3DB53B1E24158431004256ED /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		3DB53B1F24158434004256ED /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		51B24F7C4E924763DA29C8A8 /* Pods-SportRecording-SportRecordingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecording-SportRecordingUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EC3B30CD4F9CB70D9BF32E6 /* Pods-SportRecordingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecordingTests.release.xcconfig"; path = "Target Support Files/Pods-SportRecordingTests/Pods-SportRecordingTests.release.xcconfig"; sourceTree = "<group>"; };
+		7755B793F2941636EE7E324A /* Pods-SportRecordingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecordingTests.debug.xcconfig"; path = "Target Support Files/Pods-SportRecordingTests/Pods-SportRecordingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9179CD0A27F469F032BB0A2C /* Pods-SportRecording-SportRecordingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecording-SportRecordingUITests.release.xcconfig"; path = "Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D74F782281C1367086E60FD3 /* Pods-SportRecording.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecording.debug.xcconfig"; path = "Target Support Files/Pods-SportRecording/Pods-SportRecording.debug.xcconfig"; sourceTree = "<group>"; };
+		DA6EB6BBA87575B3CFEC626B /* Pods_SportRecording.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportRecording.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE384BF607A35ED32F22EB4B /* Pods_SportRecordingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportRecordingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63D888CCED4CD74E5A4764B /* Pods-SportRecording.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecording.release.xcconfig"; path = "Target Support Files/Pods-SportRecording/Pods-SportRecording.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DB53A4B2413A387004256ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F6F1D0A7A6B17480A155700 /* Pods_SportRecording.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A642413A395004256ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D52899BA90B7A6547FD9475D /* Pods_SportRecordingTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A6F2413A395004256ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD53963E06D46D8BF5878496 /* Pods_SportRecording_SportRecordingUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2660D071CA2343CFFE17BF4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA6EB6BBA87575B3CFEC626B /* Pods_SportRecording.framework */,
+				1E0E1571F516E24412AA8A76 /* Pods_SportRecording_SportRecordingUITests.framework */,
+				EE384BF607A35ED32F22EB4B /* Pods_SportRecordingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2834C912B98A7350217A670A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D74F782281C1367086E60FD3 /* Pods-SportRecording.debug.xcconfig */,
+				F63D888CCED4CD74E5A4764B /* Pods-SportRecording.release.xcconfig */,
+				51B24F7C4E924763DA29C8A8 /* Pods-SportRecording-SportRecordingUITests.debug.xcconfig */,
+				9179CD0A27F469F032BB0A2C /* Pods-SportRecording-SportRecordingUITests.release.xcconfig */,
+				7755B793F2941636EE7E324A /* Pods-SportRecordingTests.debug.xcconfig */,
+				5EC3B30CD4F9CB70D9BF32E6 /* Pods-SportRecordingTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3DB53A452413A387004256ED = {
+			isa = PBXGroup;
+			children = (
+				3DB53A502413A387004256ED /* SportRecording */,
+				3DB53A4F2413A387004256ED /* Products */,
+				2834C912B98A7350217A670A /* Pods */,
+				2660D071CA2343CFFE17BF4F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3DB53A4F2413A387004256ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DB53A4E2413A387004256ED /* SportRecording.app */,
+				3DB53A672413A395004256ED /* SportRecordingTests.xctest */,
+				3DB53A722413A395004256ED /* SportRecordingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DB53A502413A387004256ED /* SportRecording */ = {
+			isa = PBXGroup;
+			children = (
+				3DB53B15241583FA004256ED /* MMDrawerController */,
+				3DB53B1224151077004256ED /* Controller */,
+				3DB53B0D2413FA28004256ED /* Model */,
+				3DB53A512413A387004256ED /* AppDelegate.swift */,
+				3DB53A532413A387004256ED /* SceneDelegate.swift */,
+				3DB53A572413A387004256ED /* Main.storyboard */,
+				3DB53A5D2413A394004256ED /* Assets.xcassets */,
+				3DB53A5F2413A394004256ED /* LaunchScreen.storyboard */,
+				3DB53A622413A394004256ED /* Info.plist */,
+				3DA6895D241D0989009CEC15 /* colored-runners.jpg */,
+			);
+			path = SportRecording;
+			sourceTree = "<group>";
+		};
+		3DB53B0D2413FA28004256ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DB53B0E2413FA82004256ED /* Activity.swift */,
+				3DA358BE241E2C8C000631D3 /* SportRecording.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DB53B1224151077004256ED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DB53A552413A387004256ED /* ViewController.swift */,
+				3DB53B1324153919004256ED /* NewActivityController.swift */,
+				3DA68961241D1BC3009CEC15 /* ActivityTableViewCell.swift */,
+				3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3DB53B15241583FA004256ED /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				3DB53B1E24158431004256ED /* MMDrawerBarButtonItem.h */,
+				3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */,
+				3DB53B1A24158425004256ED /* MMDrawerController.h */,
+				3DB53B1C2415842B004256ED /* MMDrawerController.m */,
+				3DB53B1924158422004256ED /* MMDrawerController+Subclass.h */,
+				3DB53B1F24158434004256ED /* MMDrawerVisualState.h */,
+				3DB53B182415841F004256ED /* MMDrawerVisualState.m */,
+				3DB53B1B24158429004256ED /* UIViewController+MMDrawerController.h */,
+				3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */,
+				3DB53B1624158416004256ED /* SportRecording-Bridging-Header.h */,
+			);
+			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DB53A4D2413A387004256ED /* SportRecording */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB53A7B2413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecording" */;
+			buildPhases = (
+				DDEC21A189E7BA9A483CEB1D /* [CP] Check Pods Manifest.lock */,
+				3DB53A4A2413A387004256ED /* Sources */,
+				3DB53A4B2413A387004256ED /* Frameworks */,
+				3DB53A4C2413A387004256ED /* Resources */,
+				40501B69C9A805881E3B22B4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SportRecording;
+			productName = SportRecording;
+			productReference = 3DB53A4E2413A387004256ED /* SportRecording.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3DB53A662413A395004256ED /* SportRecordingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB53A7E2413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecordingTests" */;
+			buildPhases = (
+				70FCFCA241893EBF7ECEAED5 /* [CP] Check Pods Manifest.lock */,
+				3DB53A632413A395004256ED /* Sources */,
+				3DB53A642413A395004256ED /* Frameworks */,
+				3DB53A652413A395004256ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DB53A692413A395004256ED /* PBXTargetDependency */,
+			);
+			name = SportRecordingTests;
+			productName = SportRecordingTests;
+			productReference = 3DB53A672413A395004256ED /* SportRecordingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3DB53A712413A395004256ED /* SportRecordingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB53A812413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecordingUITests" */;
+			buildPhases = (
+				61D17E7909515902EC8E01D6 /* [CP] Check Pods Manifest.lock */,
+				3DB53A6E2413A395004256ED /* Sources */,
+				3DB53A6F2413A395004256ED /* Frameworks */,
+				3DB53A702413A395004256ED /* Resources */,
+				4BA6F0B9F9EB39B897CDED87 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DB53A742413A395004256ED /* PBXTargetDependency */,
+			);
+			name = SportRecordingUITests;
+			productName = SportRecordingUITests;
+			productReference = 3DB53A722413A395004256ED /* SportRecordingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DB53A462413A387004256ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Jan Prokorát";
+				TargetAttributes = {
+					3DB53A4D2413A387004256ED = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+					3DB53A662413A395004256ED = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 3DB53A4D2413A387004256ED;
+					};
+					3DB53A712413A395004256ED = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 3DB53A4D2413A387004256ED;
+					};
+				};
+			};
+			buildConfigurationList = 3DB53A492413A387004256ED /* Build configuration list for PBXProject "SportRecording" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DB53A452413A387004256ED;
+			productRefGroup = 3DB53A4F2413A387004256ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DB53A4D2413A387004256ED /* SportRecording */,
+				3DB53A662413A395004256ED /* SportRecordingTests */,
+				3DB53A712413A395004256ED /* SportRecordingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DB53A4C2413A387004256ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DA6895E241D0989009CEC15 /* colored-runners.jpg in Resources */,
+				3DB53A612413A394004256ED /* LaunchScreen.storyboard in Resources */,
+				3DB53A5E2413A394004256ED /* Assets.xcassets in Resources */,
+				3DB53A592413A387004256ED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A652413A395004256ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A702413A395004256ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40501B69C9A805881E3B22B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportRecording/Pods-SportRecording-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportRecording/Pods-SportRecording-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportRecording/Pods-SportRecording-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA6F0B9F9EB39B897CDED87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61D17E7909515902EC8E01D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportRecording-SportRecordingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70FCFCA241893EBF7ECEAED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportRecordingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDEC21A189E7BA9A483CEB1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportRecording-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DB53A4A2413A387004256ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DB53A562413A387004256ED /* ViewController.swift in Sources */,
+				3DB53B2324158434004256ED /* MMDrawerBarButtonItem.m in Sources */,
+				3DA358C0241E2C8C000631D3 /* SportRecording.xcdatamodeld in Sources */,
+				3DA68962241D1BC3009CEC15 /* ActivityTableViewCell.swift in Sources */,
+				3DB53B2124158434004256ED /* MMDrawerVisualState.m in Sources */,
+				3DA358BD241E213B000631D3 /* ActivityListTableViewController.swift in Sources */,
+				3DB53B2024158434004256ED /* UIViewController+MMDrawerController.m in Sources */,
+				3DB53B0F2413FA82004256ED /* Activity.swift in Sources */,
+				3DB53B2224158434004256ED /* MMDrawerController.m in Sources */,
+				3DB53B1424153919004256ED /* NewActivityController.swift in Sources */,
+				3DB53A522413A387004256ED /* AppDelegate.swift in Sources */,
+				3DB53A542413A387004256ED /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A632413A395004256ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DB53A6E2413A395004256ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DB53A692413A395004256ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DB53A4D2413A387004256ED /* SportRecording */;
+			targetProxy = 3DB53A682413A395004256ED /* PBXContainerItemProxy */;
+		};
+		3DB53A742413A395004256ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DB53A4D2413A387004256ED /* SportRecording */;
+			targetProxy = 3DB53A732413A395004256ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3DB53A572413A387004256ED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DB53A582413A387004256ED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DB53A5F2413A394004256ED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DB53A602413A394004256ED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DB53A792413A395004256ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DB53A7A2413A395004256ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DB53A7C2413A395004256ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74F782281C1367086E60FD3 /* Pods-SportRecording.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecording/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecording;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SportRecording/MMDrawerController/SportRecording-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3DB53A7D2413A395004256ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F63D888CCED4CD74E5A4764B /* Pods-SportRecording.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecording/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecording;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SportRecording/MMDrawerController/SportRecording-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		3DB53A7F2413A395004256ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7755B793F2941636EE7E324A /* Pods-SportRecordingTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecordingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecordingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportRecording.app/SportRecording";
+			};
+			name = Debug;
+		};
+		3DB53A802413A395004256ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EC3B30CD4F9CB70D9BF32E6 /* Pods-SportRecordingTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecordingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecordingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportRecording.app/SportRecording";
+			};
+			name = Release;
+		};
+		3DB53A822413A395004256ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51B24F7C4E924763DA29C8A8 /* Pods-SportRecording-SportRecordingUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecordingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecordingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SportRecording;
+			};
+			name = Debug;
+		};
+		3DB53A832413A395004256ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9179CD0A27F469F032BB0A2C /* Pods-SportRecording-SportRecordingUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportRecordingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jan.SportRecordingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SportRecording;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DB53A492413A387004256ED /* Build configuration list for PBXProject "SportRecording" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB53A792413A395004256ED /* Debug */,
+				3DB53A7A2413A395004256ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB53A7B2413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecording" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB53A7C2413A395004256ED /* Debug */,
+				3DB53A7D2413A395004256ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB53A7E2413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecordingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB53A7F2413A395004256ED /* Debug */,
+				3DB53A802413A395004256ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DB53A812413A395004256ED /* Build configuration list for PBXNativeTarget "SportRecordingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DB53A822413A395004256ED /* Debug */,
+				3DB53A832413A395004256ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DA358BE241E2C8C000631D3 /* SportRecording.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DA358BF241E2C8C000631D3 /* SportRecording.xcdatamodel */,
+			);
+			currentVersion = 3DA358BF241E2C8C000631D3 /* SportRecording.xcdatamodel */;
+			path = SportRecording.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3DB53A462413A387004256ED /* Project object */;
+}
