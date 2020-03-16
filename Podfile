@@ -8,6 +8,7 @@ target 'SportRecording' do
 
   # Pods for SportRecording
   pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 
   target 'SportRecordingTests' do
     inherit! :search_paths

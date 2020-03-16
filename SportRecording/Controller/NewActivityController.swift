@@ -76,7 +76,8 @@ class NewActivityController: UIViewController{
             case false:
                 activity.insertRecordToCoreData(entity: recordEntity, context: managedContext) ? displayMessage(message: "Activity record successfully saved") : displayMessage(message: "Could not save record")
             case true:
-                activity.storeDateOnCloud() ? displayMessage(message: "Activity record successfully saved") : displayMessage(message: "Could not save record")
+                activity.storeDataOnCloud()
+            displayMessage(message: "Activity record successfully saved")
         }
         //delegate?.transferRecord(data: record)
         //performSegue(withIdentifier: "newRecordSegue", sender: self)

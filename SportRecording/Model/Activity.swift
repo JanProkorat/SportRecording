@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Firebase
 
 class Activity {
     
@@ -53,8 +54,16 @@ class Activity {
         }
     }
     
-    func storeDateOnCloud() -> Bool {
-        return false
+    func storeDataOnCloud() {
+        let favorite : String = self.IsFavorite == true ? "true" : "false"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy hh:mm"
+        var date = formatter.string(from: self.ActivityDate)
+        let infoDictionary = [ "name" : self.Name, "location" : self.Location, "length" : self.Length, "activitydate" : date, "isfavorite" : favorite ]
+        formatter.dateFormat = "ddMMyyyyhhmm"
+        date = formatter.string(from: self.ActivityDate)
+        let ref = Database.database().reference().child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)")
+        ref.setValue(infoDictionary)
     }
     
     static func deleteRecordFromCoreData(activity: Activity, context: NSManagedObjectContext) {
@@ -80,7 +89,7 @@ class Activity {
         }
     }
     
-    static func RetrieveRecords(context: NSManagedObjectContext) -> [Activity] {
+    static func retrieveRecordsLocalData(context: NSManagedObjectContext) -> [Activity] {
         var activities = [Activity]()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]

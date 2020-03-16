@@ -11,14 +11,14 @@ import CoreData
 
 class ActivityListTableViewController: UITableViewController {
     
-    var activities = [Activity]()
-    
+    var coreDataActivities = [Activity]()
+    var fireBaseActivities = [Activity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        activities = Activity.RetrieveRecords(context: managedContext)
+        coreDataActivities = Activity.retrieveRecordsLocalData(context: managedContext)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -34,18 +34,18 @@ class ActivityListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if activities.count == 0 {
+        if coreDataActivities.count == 0 {
             tableView.setEmptyView(title: "No data to display.", message: "Your activities will be in here.")
         }else {
             tableView.restore()
         }
-        return activities.count
+        return coreDataActivities.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.reuseIdentifier, for: indexPath) as! ActivityTableViewCell)
-        let activity = activities[indexPath.row]
+        let activity = coreDataActivities[indexPath.row]
         cell.lb_name?.text = activity.Name
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy hh:mm"
@@ -67,11 +67,11 @@ class ActivityListTableViewController: UITableViewController {
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
-            let activity = activities[indexPath.row]
+            let activity = coreDataActivities[indexPath.row]
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             let context = appDelegate.persistentContainer.viewContext
             Activity.deleteRecordFromCoreData(activity: activity, context: context)
-            activities.remove(at: indexPath.row)
+            coreDataActivities.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
 //            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
