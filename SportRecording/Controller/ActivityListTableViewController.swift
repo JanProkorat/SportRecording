@@ -8,24 +8,51 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class ActivityListTableViewController: UITableViewController {
     
-    var coreDataActivities = [Activity]()
-    var fireBaseActivities = [Activity]()
+    var activities = [Activity]()
+    @IBOutlet weak var btn_typeOfStorage: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        coreDataActivities = Activity.retrieveRecordsLocalData(context: managedContext)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        activities = Activity.retrieveRecordsLocalData()
     }
     
+    @IBAction func typeOfStorage_Clicked(_ sender: Any) {
+        switch btn_typeOfStorage.title {
+        case "Firebase":
+            retrieveDataFirebase()
+            btn_typeOfStorage.title = "Core data"
+            break
+        case "Core data":
+            activities = Activity.retrieveRecordsLocalData()
+            tableView.reloadData()
+            btn_typeOfStorage.title = "Firebase"
+            break
+        default:
+            break
+        }
+    }
+    
+    func retrieveDataFirebase(){
+        let ref = Database.database().reference()
+        ref.child("Records").observe(.value, with: {
+            snapshot in
+            var localActivities = [Activity]()
+            let value = snapshot.value as? NSDictionary
+            for (_, subdict) in value! {
+                let recordDataDict = subdict as? NSDictionary
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM.yyyy hh:mm"
+                let date = formatter.date(from: recordDataDict?["activitydate"] as! String)
+                localActivities.append(Activity(Name: recordDataDict?["name"] as! String, Length: recordDataDict?["length"] as! String, Location: recordDataDict?["location"] as! String, ActivityDate: date!, TypeOfStorage: true, IsFavorite: recordDataDict?["isfavorite"] as! String == "true" ? true : false))
+            }
+            self.activities = localActivities
+            self.tableView.reloadData()
+        })
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -34,18 +61,18 @@ class ActivityListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if coreDataActivities.count == 0 {
+        if activities.count == 0 {
             tableView.setEmptyView(title: "No data to display.", message: "Your activities will be in here.")
         }else {
             tableView.restore()
         }
-        return coreDataActivities.count
+        return activities.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.reuseIdentifier, for: indexPath) as! ActivityTableViewCell)
-        let activity = coreDataActivities[indexPath.row]
+        let activity = activities[indexPath.row]
         cell.lb_name?.text = activity.Name
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy hh:mm"
@@ -55,56 +82,19 @@ class ActivityListTableViewController: UITableViewController {
     }
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
-            let activity = coreDataActivities[indexPath.row]
+            let activity = activities[indexPath.row]
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             let context = appDelegate.persistentContainer.viewContext
             Activity.deleteRecordFromCoreData(activity: activity, context: context)
-            coreDataActivities.remove(at: indexPath.row)
+            activities.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
-//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//            let managedContext = appDelegate.persistentContainer.viewContext
          }
      }
      
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
 
 extension UITableView {

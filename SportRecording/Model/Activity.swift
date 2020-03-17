@@ -89,8 +89,10 @@ class Activity {
         }
     }
     
-    static func retrieveRecordsLocalData(context: NSManagedObjectContext) -> [Activity] {
+    static func retrieveRecordsLocalData() -> [Activity] {
         var activities = [Activity]()
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate!.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
 

@@ -48,7 +48,7 @@
                                 <rect key="frame" x="40" y="668" width="295" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-cz-mHL">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kn0-Qp-2CV"/>
                                             <constraint firstAttribute="width" constant="140" id="mFx-v7-Av1"/>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-gF-vmj">
-                                        <rect key="frame" x="156" y="0.0" width="139" height="40"/>
+                                        <rect key="frame" x="155" y="0.0" width="140" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Jym-Jp-K3k"/>
                                             <constraint firstAttribute="width" constant="140" id="Qi0-9W-abr"/>
@@ -162,7 +162,16 @@
                             <outlet property="delegate" destination="vjq-xf-Lyj" id="udu-2e-YbG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AE6-6V-ciK"/>
+                    <navigationItem key="navigationItem" id="AE6-6V-ciK">
+                        <barButtonItem key="rightBarButtonItem" title="Firebase" id="vVo-4H-c1t">
+                            <connections>
+                                <action selector="typeOfStorage_Clicked:" destination="vjq-xf-Lyj" id="kX1-vb-JW2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btn_typeOfStorage" destination="vVo-4H-c1t" id="gIq-Ps-FTQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syg-GN-iVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +189,7 @@
                                 <rect key="frame" x="2" y="93" width="371" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name of activity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1VZ-GN-C37">
-                                        <rect key="frame" x="0.0" y="0.0" width="371" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="371" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="1Ns-ly-TIw"/>
                                         </constraints>
@@ -188,7 +197,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adl-C4-vo0">
-                                        <rect key="frame" x="0.0" y="52" width="371" height="48"/>
+                                        <rect key="frame" x="0.0" y="56" width="371" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="R2V-vh-58n"/>
                                         </constraints>

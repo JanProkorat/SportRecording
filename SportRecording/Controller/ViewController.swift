@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class ViewController: UIViewController, DataSendDelegate {
     
+    var activities = [Activity]()
     
-    
-//    var records = [Activity]()
+    var records = [Activity]()
     
     @IBOutlet weak var btn_NewActivity: UIButton!
     @IBOutlet weak var btn_PreviousActivities: UIButton!
@@ -23,6 +24,7 @@ class ViewController: UIViewController, DataSendDelegate {
         
         setButtonBorder(button: btn_NewActivity)
         setButtonBorder(button: btn_PreviousActivities)
+        
     }
 
     func setButtonBorder(button: UIButton){
