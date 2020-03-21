@@ -12,90 +12,133 @@ import Firebase
 
 class ActivityListTableViewController: UITableViewController {
     
-    var activities = [Activity]()
-    @IBOutlet weak var btn_typeOfStorage: UIBarButtonItem!
+    var activities = [[Activity]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activities = Activity.retrieveRecordsLocalData()
+        tableView.reloadData()
+        retrieveData()
     }
     
-    @IBAction func typeOfStorage_Clicked(_ sender: Any) {
-        switch btn_typeOfStorage.title {
-        case "Firebase":
-            retrieveDataFirebase()
-            btn_typeOfStorage.title = "Core data"
-            break
-        case "Core data":
-            activities = Activity.retrieveRecordsLocalData()
-            tableView.reloadData()
-            btn_typeOfStorage.title = "Firebase"
-            break
-        default:
-            break
-        }
-    }
-    
-    func retrieveDataFirebase(){
+    func retrieveData(){
         let ref = Database.database().reference()
         ref.child("Records").observe(.value, with: {
             snapshot in
-            var localActivities = [Activity]()
+            var cloudActivities = [Activity]()
             let value = snapshot.value as? NSDictionary
-            for (_, subdict) in value! {
-                let recordDataDict = subdict as? NSDictionary
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yyyy hh:mm"
-                let date = formatter.date(from: recordDataDict?["activitydate"] as! String)
-                localActivities.append(Activity(Name: recordDataDict?["name"] as! String, Length: recordDataDict?["length"] as! String, Location: recordDataDict?["location"] as! String, ActivityDate: date!, TypeOfStorage: true, IsFavorite: recordDataDict?["isfavorite"] as! String == "true" ? true : false))
+            if value != nil {
+                for (_, subdict) in value! {
+                    let recordDataDict = subdict as? NSDictionary
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "dd.MM.yyyy hh:mm"
+                    let date = formatter.date(from: recordDataDict?["activitydate"] as! String)
+                    cloudActivities.append(Activity(Name: recordDataDict?["name"] as! String, Length: recordDataDict?["length"] as! String, Location: recordDataDict?["location"] as! String, ActivityDate: date!, TypeOfStorage: true, IsFavorite: recordDataDict?["isfavorite"] as! String == "true" ? true : false))
+                }
             }
-            self.activities = localActivities
+            let localActivities = Activity.retrieveRecordsLocalData()
+            //let mergedActivities = localActivities + cloudActivities
+            self.activities.append(localActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
+            self.activities.append(cloudActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
+            for i in 0...self.activities.count-1{
+                self.activities[i].sort(by: {
+                    $0.IsFavorite && !$1.IsFavorite
+                })
+            }
             self.tableView.reloadData()
         })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return activities.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if activities.count == 0 {
             tableView.setEmptyView(title: "No data to display.", message: "Your activities will be in here.")
         }else {
             tableView.restore()
         }
-        return activities.count
+        return activities[section].count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.reuseIdentifier, for: indexPath) as! ActivityTableViewCell)
-        let activity = activities[indexPath.row]
+        let activity = activities[indexPath.section][indexPath.row]
         cell.lb_name?.text = activity.Name
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy hh:mm"
         cell.lb_date?.text = formatter.string(from: activity.ActivityDate )
         cell.lb_location?.text = activity.Location
+        if activity.IsFavorite {
+            cell.btn_isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }
+//        if activity.TypeOfStorage == false {
+//            cell.backgroundColor = UIColor.yellow
+//        }else{
+//            cell.backgroundColor = UIColor.green
+//        }
+
         return cell
     }
     
     
-     // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
-            let activity = activities[indexPath.row]
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-            let context = appDelegate.persistentContainer.viewContext
-            Activity.deleteRecordFromCoreData(activity: activity, context: context)
-            activities.remove(at: indexPath.row)
+            let activity = activities[indexPath.section][indexPath.row]
+            switch activity.TypeOfStorage {
+            case true:
+                activity.deleteObjectFromCloud()
+            case false:
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                let context = appDelegate.persistentContainer.viewContext
+                Activity.deleteRecordFromCoreData(activity: activity, context: context)
+                break
+            }
+            activities[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
          }
      }
      
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var sectionName : String = ""
+        switch section {
+        case 0:
+            sectionName = "Local data"
+            break
+        case 1:
+            sectionName = "Cloud data"
+            break
+        default:
+            break
+        }
+        return sectionName
+    }
+    
+    @IBAction func btn_favorite_Clicked(_ sender: UIButton) {
+        guard let cell = (sender as AnyObject).superview?.superview as? ActivityTableViewCell else {
+            return // or fatalError() or whatever
+        }
+        let indexPath = tableView.indexPath(for: cell)
+        let activity = activities[indexPath!.section][indexPath!.row]
+        activity.setFavorite()
+        switch activity.IsFavorite {
+        case true:
+            cell.btn_isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            break
+        case false:
+            cell.btn_isFavorite.setImage(UIImage(systemName: "star"), for: .normal)
+            break
+        }
+        if !activity.updateActivity() {
+            let alertController = UIAlertController(title: title, message: "Could not update record.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
 }
+
 
 extension UITableView {
     func setEmptyView(title: String, message: String) {

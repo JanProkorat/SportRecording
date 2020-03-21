@@ -15,6 +15,7 @@ class ActivityTableViewCell: UITableViewCell {
     @IBOutlet weak var lb_name: UILabel!
     @IBOutlet weak var lb_date: UILabel!
     @IBOutlet weak var lb_location: UILabel!
+    @IBOutlet weak var btn_isFavorite: UIButton!
     
     
     override func awakeFromNib() {

@@ -108,14 +108,14 @@
         <!--Activity List Table View Controller-->
         <scene sceneID="hXo-45-kiF">
             <objects>
-                <tableViewController id="vjq-xf-Lyj" customClass="ActivityListTableViewController" customModule="SportRecording" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k35-ay-U6l">
+                <tableViewController storyboardIdentifier="ActivityListTableViewController" id="vjq-xf-Lyj" customClass="ActivityListTableViewController" customModule="SportRecording" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="k35-ay-U6l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ActivityCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" rowHeight="82" id="H3o-sq-c9q" customClass="ActivityTableViewCell" customModule="SportRecording" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="82"/>
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="375" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3o-sq-c9q" id="dmU-CU-CaA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
@@ -139,6 +139,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqJ-vE-EVp">
+                                            <rect key="frame" x="316" y="12" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="star" catalog="system"/>
+                                            <connections>
+                                                <action selector="btn_favorite_Clicked:" destination="vjq-xf-Lyj" eventType="touchUpInside" id="Qjd-kn-IuQ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="TSg-Qc-5qL" secondAttribute="bottom" constant="3" id="EfC-Le-6Ja"/>
@@ -151,9 +159,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="btn_isFavorite" destination="XqJ-vE-EVp" id="2R5-iz-Txm"/>
                                     <outlet property="lb_date" destination="3ih-NZ-Qqb" id="8JY-Ei-v1c"/>
                                     <outlet property="lb_location" destination="TSg-Qc-5qL" id="Emb-0g-p5k"/>
                                     <outlet property="lb_name" destination="8eX-ni-fNa" id="rbq-Jt-4j6"/>
+                                    <segue destination="HZF-FM-qw6" kind="showDetail" id="tPs-PI-P5l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -162,20 +172,26 @@
                             <outlet property="delegate" destination="vjq-xf-Lyj" id="udu-2e-YbG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AE6-6V-ciK">
-                        <barButtonItem key="rightBarButtonItem" title="Firebase" id="vVo-4H-c1t">
-                            <connections>
-                                <action selector="typeOfStorage_Clicked:" destination="vjq-xf-Lyj" id="kX1-vb-JW2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="btn_typeOfStorage" destination="vVo-4H-c1t" id="gIq-Ps-FTQ"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="AE6-6V-ciK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syg-GN-iVC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="320.80000000000001" y="91.625615763546804"/>
+        </scene>
+        <!--Activity Detail Controller-->
+        <scene sceneID="KTh-L7-ovG">
+            <objects>
+                <viewController storyboardIdentifier="ActivityDetailController" id="HZF-FM-qw6" customClass="ActivityDetailController" customModule="SportRecording" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" semanticContentAttribute="playback" id="ft5-BX-0ZH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JSy-c8-nqe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNY-wK-0yI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="89"/>
         </scene>
         <!--New activity-->
         <scene sceneID="g39-k5-yam">

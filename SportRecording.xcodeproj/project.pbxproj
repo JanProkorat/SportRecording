@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D1520DA241FCC6100EF1A8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D1520D9241FCC6100EF1A8A /* GoogleService-Info.plist */; };
+		3D1520DC24223E9100EF1A8A /* ActivityDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1520DB24223E9100EF1A8A /* ActivityDetailController.swift */; };
+		3D1520E42423C90E00EF1A8A /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D1520E32423C90D00EF1A8A /* hamburger.png */; };
 		3DA358BD241E213B000631D3 /* ActivityListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */; };
 		3DA358C0241E2C8C000631D3 /* SportRecording.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DA358BE241E2C8C000631D3 /* SportRecording.xcdatamodeld */; };
 		3DA6895E241D0989009CEC15 /* colored-runners.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6895D241D0989009CEC15 /* colored-runners.jpg */; };
@@ -49,6 +51,8 @@
 /* Begin PBXFileReference section */
 		1E0E1571F516E24412AA8A76 /* Pods_SportRecording_SportRecordingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportRecording_SportRecordingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D1520D9241FCC6100EF1A8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D1520DB24223E9100EF1A8A /* ActivityDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailController.swift; sourceTree = "<group>"; };
+		3D1520E32423C90D00EF1A8A /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
 		3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListTableViewController.swift; sourceTree = "<group>"; };
 		3DA358BF241E2C8C000631D3 /* SportRecording.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportRecording.xcdatamodel; sourceTree = "<group>"; };
 		3DA6895D241D0989009CEC15 /* colored-runners.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "colored-runners.jpg"; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				3DB53A5F2413A394004256ED /* LaunchScreen.storyboard */,
 				3DB53A622413A394004256ED /* Info.plist */,
 				3DA6895D241D0989009CEC15 /* colored-runners.jpg */,
+				3D1520E32423C90D00EF1A8A /* hamburger.png */,
 				3D1520D9241FCC6100EF1A8A /* GoogleService-Info.plist */,
 			);
 			path = SportRecording;
@@ -190,6 +195,7 @@
 				3DB53B1324153919004256ED /* NewActivityController.swift */,
 				3DA68961241D1BC3009CEC15 /* ActivityTableViewCell.swift */,
 				3DA358BC241E213B000631D3 /* ActivityListTableViewController.swift */,
+				3D1520DB24223E9100EF1A8A /* ActivityDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				3DA6895E241D0989009CEC15 /* colored-runners.jpg in Resources */,
 				3DB53A612413A394004256ED /* LaunchScreen.storyboard in Resources */,
 				3D1520DA241FCC6100EF1A8A /* GoogleService-Info.plist in Resources */,
+				3D1520E42423C90E00EF1A8A /* hamburger.png in Resources */,
 				3DB53A5E2413A394004256ED /* Assets.xcassets in Resources */,
 				3DB53A592413A387004256ED /* Main.storyboard in Resources */,
 			);
@@ -455,6 +462,7 @@
 			files = (
 				3DB53A562413A387004256ED /* ViewController.swift in Sources */,
 				3DB53B2324158434004256ED /* MMDrawerBarButtonItem.m in Sources */,
+				3D1520DC24223E9100EF1A8A /* ActivityDetailController.swift in Sources */,
 				3DA358C0241E2C8C000631D3 /* SportRecording.xcdatamodeld in Sources */,
 				3DA68962241D1BC3009CEC15 /* ActivityTableViewCell.swift in Sources */,
 				3DB53B2124158434004256ED /* MMDrawerVisualState.m in Sources */,

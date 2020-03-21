@@ -9,15 +9,33 @@
 import UIKit
 import CoreData
 import Firebase
+import MMDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//    var window: UIWindow?
+//    var centerContainer : MMDrawerController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+//        var rootViewController = self.window?.rootViewController
+//        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        var centerViewController = mainStoryboard.instantiateViewController(withIdentifier: "ActivityListTableViewController") as UIViewController
+//        var rightViewController = mainStoryboard.instantiateViewController(withIdentifier: "ActivityDetailController") as UIViewController
+//
+//        var centerNav = UINavigationController(rootViewController: centerViewController)
+//        var rightNav = UINavigationController(rootViewController: rightViewController)
+//
+//        centerContainer = MMDrawerController(center: centerNav,rightDrawerViewController:rightNav)
+//
+//        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+//        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
+//
+//        window!.rootViewController = centerContainer
+//        window!.makeKeyAndVisible()
         return true
     }
 

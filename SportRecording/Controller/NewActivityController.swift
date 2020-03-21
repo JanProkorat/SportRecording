@@ -38,30 +38,22 @@ class NewActivityController: UIViewController{
         tf_location.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
     }
     
-    func setButtonBorder(button: UIButton, color: CGColor){
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = color
-    }
-    
     @objc func textFieldDidChange(_ sender: UITextField) {
         if tf_name.text == "" || tf_location.text == "" {
             btn_save.isEnabled = false;
             btn_save.alpha = 0.2
         }else{
-             btn_save.isEnabled = true;
+            btn_save.isEnabled = true;
             btn_save.alpha = 1
         }
     }
 
     @IBAction func fovourite_Clicked(_ sender: Any) {
-        if !isFavorite {
-            isFavorite = true
-            btn_setFavorite.setImage(UIImage(named: "star.fill"), for: .normal)
-        } else {
-            isFavorite = false
-            btn_setFavorite.setImage(UIImage(named: "star"), for: .normal)
+        isFavorite = !isFavorite
+        if isFavorite {
+            btn_setFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        }else{
+            btn_setFavorite.setImage(UIImage(systemName: "star"), for: .normal)
         }
     }
     
@@ -79,23 +71,27 @@ class NewActivityController: UIViewController{
                 activity.storeDataOnCloud()
             displayMessage(message: "Activity record successfully saved")
         }
-        //delegate?.transferRecord(data: record)
-        //performSegue(withIdentifier: "newRecordSegue", sender: self)
+        resetControls()
+    }
+    
+    private func setButtonBorder(button: UIButton, color: CGColor){
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = color
+    }
+    
+    private func resetControls(){
         tf_name.text = ""
         tf_location.text = ""
         isFavorite = false
+        dp_activityDate.date = Date()
+        dp_length.date = Date()
         btn_save.isEnabled = false;
         btn_save.alpha = 0.2
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vc = segue.destination as! ViewController
-//        vc.records.append(record)
-//    }
-    
-    
-    
-    func displayMessage(message: String){
+    private func displayMessage(message: String){
         let alertController = UIAlertController(title: "Result", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
