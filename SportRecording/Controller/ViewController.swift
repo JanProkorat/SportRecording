@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 
-class ViewController: UIViewController, DataSendDelegate {
+class ViewController: UIViewController {
     
     var activities = [Activity]()
     
@@ -34,17 +34,6 @@ class ViewController: UIViewController, DataSendDelegate {
         button.layer.borderColor = UIColor.black.cgColor
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "newRecordSegue"){
-            let vc = segue.destination as! NewActivityController
-            vc.delegate = self
-        }
-    }
-    
-    func transferRecord(data: Activity) {
-//        records.append(data)
-//        print("\(records.count)")
-    }
     
     
 }

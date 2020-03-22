@@ -12,7 +12,6 @@ import Firebase
 
 class Activity {
     
-    
     private(set) var Name: String
     private(set) var Length: String
     private(set) var Location: String
@@ -38,10 +37,6 @@ class Activity {
         self.IsFavorite = false
     }
     
-    func setFavorite(){
-        IsFavorite = !IsFavorite
-    }
-    
     func insertRecordToCoreData(entity: NSEntityDescription, context: NSManagedObjectContext) -> Bool {
         let record = NSManagedObject(entity: entity, insertInto: context)
         record.setValue(self.Name, forKeyPath: "name")
@@ -58,6 +53,7 @@ class Activity {
             return false
         }
     }
+    
     
     func storeDataOnCloud() {
         let favorite : String = self.IsFavorite == true ? "true" : "false"
@@ -80,16 +76,16 @@ class Activity {
         ref.child("Records").child(x).removeValue()
     }
     
-    func updateActivity() -> Bool {
+    func updateActivity(newName: String?, newLocation: String?, newLength: String?, newActivityDate: Date?,newFavorite: Bool?) -> Bool {
         switch self.TypeOfStorage {
         case false:
-            return updateRecordCoreData()
+            return updateRecordCoreData(newName: newName, newLocation: newLocation, newLength: newLength, newActivityDate: newActivityDate,newFavorite: newFavorite)
         case true:
             return updateRecordFirebase()
         }
     }
     
-    private func updateRecordCoreData() -> Bool {
+    private func updateRecordCoreData(newName: String?, newLocation: String?, newLength: String?, newActivityDate: Date?, newFavorite: Bool?) -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return false }
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Record")
@@ -97,17 +93,16 @@ class Activity {
         let datePredicate = NSPredicate(format:"activitydate = %@", self.ActivityDate as NSDate)
         let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [namePredicate, datePredicate])
         fetchRequest.predicate = andPredicate
-         do
+        do
          {
-             let test = try context.fetch(fetchRequest)
-    
-                 let record = test[0] as! NSManagedObject
-                 record.setValue(self.Name, forKeyPath: "name")
-                 record.setValue(self.Location, forKeyPath: "location")
-                 record.setValue(self.Length, forKeyPath: "length")
-                 record.setValue(self.ActivityDate, forKeyPath: "activitydate")
-                 record.setValue(self.IsFavorite, forKeyPath: "isfavorite")
-                 do{
+            let test = try context.fetch(fetchRequest)
+            let record = test[0] as! NSManagedObject
+            record.setValue(newName == nil ? self.Name : newName, forKeyPath: "name")
+            record.setValue(newLocation == nil ? self.Location : newLocation, forKeyPath: "location")
+            record.setValue(newLength == nil ? self.Length : newLength, forKeyPath: "length")
+            record.setValue(newActivityDate == nil ? self.ActivityDate : newActivityDate, forKeyPath: "activitydate")
+            record.setValue(newFavorite == nil ? self.IsFavorite : newFavorite, forKeyPath: "isfavorite")
+                do{
                      try context.save()
                  }
                  catch
@@ -121,10 +116,37 @@ class Activity {
              print(error)
             return false
          }
+        self.Name = newName != nil ? newName! : self.Name
+        self.Location = newLocation != nil ? newLocation! : self.Location
+        self.Length = newLength != nil ? newLength! : self.Length
+        self.ActivityDate = newActivityDate != nil ? newActivityDate! : self.ActivityDate
+        self.IsFavorite = newFavorite != nil ? newFavorite! : self.IsFavorite
         return true
     }
     
     private func updateRecordFirebase() -> Bool {
+//        var postData = {
+//            "name": self.Name,
+//            "location": self.Location,
+//            "length": self.Length,
+//            "activitydate": self.ActivityDate,
+//            "isfavorite": self.IsFavorite == true? "true" : "false"
+//        };
+//
+//        // Get a key for a new Post.
+//        var newPostKey = Database.database().reference().child("Records").key;
+//
+//        // Write the new post's data simultaneously in the posts list and the user's post list.
+//        var updates = {};
+//        updates['/posts/' + newPostKey] = postData;
+//        updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+//
+//        return firebase.database().ref().update(updates)
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "ddMMyyyyhhmm"
+//        var date = formatter.string(from: self.ActivityDate)
+//        Database.database().reference().child("/Records/" + "\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)")
+//        .set({ title: "New title", body: "This is the new body" });
         return false
     }
     

@@ -9,9 +9,6 @@
 import UIKit
 import CoreData
 
-protocol DataSendDelegate {
-    func transferRecord(data: Activity)
-}
 
 class NewActivityController: UIViewController{
     
@@ -25,7 +22,6 @@ class NewActivityController: UIViewController{
     
     var activity : Activity!
     var isFavorite = false
-    var delegate : DataSendDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +49,7 @@ class NewActivityController: UIViewController{
         if isFavorite {
             btn_setFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
         }else{
-            btn_setFavorite.setImage(UIImage(systemName: "star"), for: .normal)
+            //btn_setFavorite.setImage(UIImage(systemName: "star"), for: .normal)
         }
     }
     

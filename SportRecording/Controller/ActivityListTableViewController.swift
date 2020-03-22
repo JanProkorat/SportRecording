@@ -10,15 +10,22 @@ import UIKit
 import CoreData
 import Firebase
 
-class ActivityListTableViewController: UITableViewController {
+class ActivityListTableViewController: UITableViewController, UpdateTableDelegate {
     
     var activities = [[Activity]]()
+    //var indicator = UIActivityIndicatorView()
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        indicator.startAnimating()
         retrieveData()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        tableView.reloadData()
+//    }
     
     func retrieveData(){
         let ref = Database.database().reference()
@@ -36,7 +43,6 @@ class ActivityListTableViewController: UITableViewController {
                 }
             }
             let localActivities = Activity.retrieveRecordsLocalData()
-            //let mergedActivities = localActivities + cloudActivities
             self.activities.append(localActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
             self.activities.append(cloudActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
             for i in 0...self.activities.count-1{
@@ -44,6 +50,8 @@ class ActivityListTableViewController: UITableViewController {
                     $0.IsFavorite && !$1.IsFavorite
                 })
             }
+            //self.indicator.stopAnimating()
+            self.indicator.isHidden = true
             self.tableView.reloadData()
         })
     }
@@ -73,15 +81,8 @@ class ActivityListTableViewController: UITableViewController {
         if activity.IsFavorite {
             cell.btn_isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
         }
-//        if activity.TypeOfStorage == false {
-//            cell.backgroundColor = UIColor.yellow
-//        }else{
-//            cell.backgroundColor = UIColor.green
-//        }
-
         return cell
     }
-    
     
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
@@ -121,7 +122,11 @@ class ActivityListTableViewController: UITableViewController {
         }
         let indexPath = tableView.indexPath(for: cell)
         let activity = activities[indexPath!.section][indexPath!.row]
-        activity.setFavorite()
+        if !activity.updateActivity(newName: nil, newLocation: nil, newLength: nil, newActivityDate: nil, newFavorite: !activity.IsFavorite) {
+            let alertController = UIAlertController(title: title, message: "Could not update record.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
         switch activity.IsFavorite {
         case true:
             cell.btn_isFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
@@ -130,11 +135,22 @@ class ActivityListTableViewController: UITableViewController {
             cell.btn_isFavorite.setImage(UIImage(systemName: "star"), for: .normal)
             break
         }
-        if !activity.updateActivity() {
-            let alertController = UIAlertController(title: title, message: "Could not update record.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ActivityDetailController
+        {
+            let vc = segue.destination as? ActivityDetailController
+            vc?.activityToDisplay = activities[tableView.indexPathForSelectedRow!.section][tableView.indexPathForSelectedRow!.row]
+            vc?.delegate = self
         }
+    }
+    
+    func updateTableView() {
+        self.tableView.reloadData()
     }
     
 }
