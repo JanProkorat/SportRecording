@@ -9,7 +9,6 @@ target 'SportRecording' do
   # Pods for SportRecording
   	pod 'Firebase/Storage'
   	pod 'Firebase/Database'
-	pod 'MMDrawerController', '~> 0.5.7'
 
   target 'SportRecordingTests' do
     inherit! :search_paths

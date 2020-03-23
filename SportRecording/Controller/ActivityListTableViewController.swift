@@ -15,23 +15,27 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
     var activities = [[Activity]]()
     var hiddenSectionsIndexes = Set<Int>()
     let headers = ["Local data", "Core data"]
-    //var indicator = UIActivityIndicatorView()
+    
+//    let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.backgroundColor = .clear
+//
+//        blurView.translatesAutoresizingMaskIntoConstraints = false
+//        self.tableView.insertSubview(blurView, at: 0)
+//        NSLayoutConstraint.activate([
+//        blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
+//        blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
+//        ])
+        
         indicator.startAnimating()
         retrieveData()
-        //self.tableView.isScrollEnabled = true
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tableView.reloadData()
-//    }
     
     func retrieveData(){
-        //self.activities = [[Activity]]()
         let ref = Database.database().reference()
         
         ref.child("Records").observe(.value, with: {
@@ -66,17 +70,17 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
         return activities.count
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let sectionButton = UIButton()
-//        sectionButton.setTitle(headers[section], for: .normal)
-//        sectionButton.setTitleColor(.darkText, for: .normal)
-//        sectionButton.tag = section
-//        sectionButton.addTarget(self,
-//                                action: #selector(self.hideSection(sender:)),
-//                                for: .touchUpInside)
-//
-//        return sectionButton
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionButton = UIButton()
+        sectionButton.setTitle(headers[section], for: .normal)
+        sectionButton.setTitleColor(.darkText, for: .normal)
+        sectionButton.tag = section
+        sectionButton.addTarget(self,
+                                action: #selector(self.hideSection(sender:)),
+                                for: .touchUpInside)
+
+        return sectionButton
+    }
     
     @objc
     private func hideSection(sender: UIButton) {
@@ -186,8 +190,7 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is ActivityDetailController
-        {
+        if segue.destination is ActivityDetailController{
             let vc = segue.destination as? ActivityDetailController
             vc?.activityToDisplay = activities[tableView.indexPathForSelectedRow!.section][tableView.indexPathForSelectedRow!.row]
             vc?.delegate = self
