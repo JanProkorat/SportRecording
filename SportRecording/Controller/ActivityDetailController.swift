@@ -49,6 +49,9 @@ class ActivityDetailController: UIViewController {
         tf_location.text = activityToDisplay.Location
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm"
+        if dateFormatter.date(from: activityToDisplay.Length) == nil {
+            dateFormatter.dateFormat = "hh:mm a"
+        }
         dp_length.date = dateFormatter.date(from: activityToDisplay.Length)!
         dp_activityDate.date = activityToDisplay.ActivityDate
         sw_favorite.isOn = activityToDisplay.IsFavorite

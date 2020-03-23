@@ -22,10 +22,6 @@
 		3DB53A612413A394004256ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB53A5F2413A394004256ED /* LaunchScreen.storyboard */; };
 		3DB53B0F2413FA82004256ED /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B0E2413FA82004256ED /* Activity.swift */; };
 		3DB53B1424153919004256ED /* NewActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1324153919004256ED /* NewActivityController.swift */; };
-		3DB53B2024158434004256ED /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */; };
-		3DB53B2124158434004256ED /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B182415841F004256ED /* MMDrawerVisualState.m */; };
-		3DB53B2224158434004256ED /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1C2415842B004256ED /* MMDrawerController.m */; };
-		3DB53B2324158434004256ED /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */; };
 		9F6F1D0A7A6B17480A155700 /* Pods_SportRecording.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6EB6BBA87575B3CFEC626B /* Pods_SportRecording.framework */; };
 		BD53963E06D46D8BF5878496 /* Pods_SportRecording_SportRecordingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0E1571F516E24412AA8A76 /* Pods_SportRecording_SportRecordingUITests.framework */; };
 		D52899BA90B7A6547FD9475D /* Pods_SportRecordingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE384BF607A35ED32F22EB4B /* Pods_SportRecordingTests.framework */; };
@@ -69,16 +65,6 @@
 		3DB53A722413A395004256ED /* SportRecordingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportRecordingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB53B0E2413FA82004256ED /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		3DB53B1324153919004256ED /* NewActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewActivityController.swift; sourceTree = "<group>"; };
-		3DB53B1624158416004256ED /* SportRecording-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SportRecording-Bridging-Header.h"; sourceTree = "<group>"; };
-		3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		3DB53B182415841F004256ED /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
-		3DB53B1924158422004256ED /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
-		3DB53B1A24158425004256ED /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
-		3DB53B1B24158429004256ED /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
-		3DB53B1C2415842B004256ED /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
-		3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
-		3DB53B1E24158431004256ED /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
-		3DB53B1F24158434004256ED /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
 		51B24F7C4E924763DA29C8A8 /* Pods-SportRecording-SportRecordingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecording-SportRecordingUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportRecording-SportRecordingUITests/Pods-SportRecording-SportRecordingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5EC3B30CD4F9CB70D9BF32E6 /* Pods-SportRecordingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecordingTests.release.xcconfig"; path = "Target Support Files/Pods-SportRecordingTests/Pods-SportRecordingTests.release.xcconfig"; sourceTree = "<group>"; };
 		7755B793F2941636EE7E324A /* Pods-SportRecordingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportRecordingTests.debug.xcconfig"; path = "Target Support Files/Pods-SportRecordingTests/Pods-SportRecordingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +149,6 @@
 		3DB53A502413A387004256ED /* SportRecording */ = {
 			isa = PBXGroup;
 			children = (
-				3DB53B15241583FA004256ED /* MMDrawerController */,
 				3DB53B1224151077004256ED /* Controller */,
 				3DB53B0D2413FA28004256ED /* Model */,
 				3DB53A512413A387004256ED /* AppDelegate.swift */,
@@ -198,23 +183,6 @@
 				3D1520DB24223E9100EF1A8A /* ActivityDetailController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		3DB53B15241583FA004256ED /* MMDrawerController */ = {
-			isa = PBXGroup;
-			children = (
-				3DB53B1E24158431004256ED /* MMDrawerBarButtonItem.h */,
-				3DB53B1D2415842E004256ED /* MMDrawerBarButtonItem.m */,
-				3DB53B1A24158425004256ED /* MMDrawerController.h */,
-				3DB53B1C2415842B004256ED /* MMDrawerController.m */,
-				3DB53B1924158422004256ED /* MMDrawerController+Subclass.h */,
-				3DB53B1F24158434004256ED /* MMDrawerVisualState.h */,
-				3DB53B182415841F004256ED /* MMDrawerVisualState.m */,
-				3DB53B1B24158429004256ED /* UIViewController+MMDrawerController.h */,
-				3DB53B172415841C004256ED /* UIViewController+MMDrawerController.m */,
-				3DB53B1624158416004256ED /* SportRecording-Bridging-Header.h */,
-			);
-			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,15 +429,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB53A562413A387004256ED /* ViewController.swift in Sources */,
-				3DB53B2324158434004256ED /* MMDrawerBarButtonItem.m in Sources */,
 				3D1520DC24223E9100EF1A8A /* ActivityDetailController.swift in Sources */,
 				3DA358C0241E2C8C000631D3 /* SportRecording.xcdatamodeld in Sources */,
 				3DA68962241D1BC3009CEC15 /* ActivityTableViewCell.swift in Sources */,
-				3DB53B2124158434004256ED /* MMDrawerVisualState.m in Sources */,
 				3DA358BD241E213B000631D3 /* ActivityListTableViewController.swift in Sources */,
-				3DB53B2024158434004256ED /* UIViewController+MMDrawerController.m in Sources */,
 				3DB53B0F2413FA82004256ED /* Activity.swift in Sources */,
-				3DB53B2224158434004256ED /* MMDrawerController.m in Sources */,
 				3DB53B1424153919004256ED /* NewActivityController.swift in Sources */,
 				3DB53A522413A387004256ED /* AppDelegate.swift in Sources */,
 				3DB53A542413A387004256ED /* SceneDelegate.swift in Sources */,

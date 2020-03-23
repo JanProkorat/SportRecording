@@ -13,6 +13,8 @@ import Firebase
 class ActivityListTableViewController: UITableViewController, UpdateTableDelegate {
     
     var activities = [[Activity]]()
+    var hiddenSectionsIndexes = Set<Int>()
+    let headers = ["Local data", "Core data"]
     //var indicator = UIActivityIndicatorView()
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
@@ -20,6 +22,7 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
         super.viewDidLoad()
         indicator.startAnimating()
         retrieveData()
+        //self.tableView.isScrollEnabled = true
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -28,9 +31,12 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
 //    }
     
     func retrieveData(){
+        //self.activities = [[Activity]]()
         let ref = Database.database().reference()
+        
         ref.child("Records").observe(.value, with: {
             snapshot in
+            var mergeActivities = [[Activity]]()
             var cloudActivities = [Activity]()
             let value = snapshot.value as? NSDictionary
             if value != nil {
@@ -43,14 +49,14 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
                 }
             }
             let localActivities = Activity.retrieveRecordsLocalData()
-            self.activities.append(localActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
-            self.activities.append(cloudActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
-            for i in 0...self.activities.count-1{
-                self.activities[i].sort(by: {
+            mergeActivities.append(localActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
+            mergeActivities.append(cloudActivities.sorted(by: { ($0.ActivityDate).compare($1.ActivityDate) == .orderedDescending }))
+            for i in 0...mergeActivities.count-1{
+                mergeActivities[i].sort(by: {
                     $0.IsFavorite && !$1.IsFavorite
                 })
             }
-            //self.indicator.stopAnimating()
+            self.activities = mergeActivities
             self.indicator.isHidden = true
             self.tableView.reloadData()
         })
@@ -60,11 +66,50 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
         return activities.count
     }
     
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let sectionButton = UIButton()
+//        sectionButton.setTitle(headers[section], for: .normal)
+//        sectionButton.setTitleColor(.darkText, for: .normal)
+//        sectionButton.tag = section
+//        sectionButton.addTarget(self,
+//                                action: #selector(self.hideSection(sender:)),
+//                                for: .touchUpInside)
+//
+//        return sectionButton
+//    }
+    
+    @objc
+    private func hideSection(sender: UIButton) {
+        let section = sender.tag
+        func indexPathsForSection() -> [IndexPath] {
+            var indexPaths = [IndexPath]()
+            
+            for row in 0..<self.activities[section].count {
+                indexPaths.append(IndexPath(row: row,
+                                            section: section))
+            }
+            
+            return indexPaths
+        }
+        if self.hiddenSectionsIndexes.contains(section) {
+            self.hiddenSectionsIndexes.remove(section)
+            self.tableView.insertRows(at: indexPathsForSection(),
+                                      with: .fade)
+        } else {
+            self.hiddenSectionsIndexes.insert(section)
+            self.tableView.deleteRows(at: indexPathsForSection(),
+                                      with: .fade)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if activities.count == 0 {
             tableView.setEmptyView(title: "No data to display.", message: "Your activities will be in here.")
         }else {
             tableView.restore()
+        }
+        if self.hiddenSectionsIndexes.contains(section){
+            return 0
         }
         return activities[section].count
     }
@@ -105,10 +150,10 @@ class ActivityListTableViewController: UITableViewController, UpdateTableDelegat
         var sectionName : String = ""
         switch section {
         case 0:
-            sectionName = "Local data"
+            sectionName = headers[0]
             break
         case 1:
-            sectionName = "Cloud data"
+            sectionName = headers[1]
             break
         default:
             break

@@ -55,15 +55,28 @@ class Activity {
     }
     
     
-    func storeDataOnCloud() {
-        let favorite : String = self.IsFavorite == true ? "true" : "false"
+    func storeDataOnCloud(newName: String?, newLocation: String?, newLength: String?, newActivityDate: Date?, newFavorite: Bool?) {
+        var favorite : String
         let formatter = DateFormatter()
+        var date : String
         formatter.dateFormat = "dd.MM.yyyy hh:mm"
-        var date = formatter.string(from: self.ActivityDate)
-        let infoDictionary = [ "name" : self.Name, "location" : self.Location, "length" : self.Length, "activitydate" : date, "isfavorite" : favorite ]
-        formatter.dateFormat = "ddMMyyyyhhmm"
-        date = formatter.string(from: self.ActivityDate)
-        let ref = Database.database().reference().child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)")
+        var infoDictionary = [String: Any]()
+        var ref : DatabaseReference
+        if newName == nil {
+            favorite = self.IsFavorite == true ? "true" : "false"
+            date = formatter.string(from: self.ActivityDate)
+            infoDictionary = [ "name" : self.Name, "location" : self.Location, "length" : self.Length, "activitydate" : date, "isfavorite" : favorite ]
+            formatter.dateFormat = "ddMMyyyyhhmm"
+            date = formatter.string(from: self.ActivityDate)
+            ref = Database.database().reference().child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)")
+        }else{
+            favorite = newFavorite == true ? "true" : "false"
+            date = formatter.string(from: newActivityDate!)
+            infoDictionary = [ "name" : newName!, "location" : newLocation!, "length" : newLength!, "activitydate" : date, "isfavorite" : favorite ]
+            formatter.dateFormat = "ddMMyyyyhhmm"
+            date = formatter.string(from: newActivityDate!)
+            ref = Database.database().reference().child("Records").child("\(newName!.replacingOccurrences(of: " ", with: "-"))_\(date)")
+        }
         ref.setValue(infoDictionary)
     }
     
@@ -72,8 +85,7 @@ class Activity {
         formatter.dateFormat = "ddMMyyyyhhmm"
         let date = formatter.string(from: self.ActivityDate)
         let ref = Database.database().reference()
-        let x =  "\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)"
-        ref.child("Records").child(x).removeValue()
+        ref.child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)").removeValue()
     }
     
     func updateActivity(newName: String?, newLocation: String?, newLength: String?, newActivityDate: Date?,newFavorite: Bool?) -> Bool {
@@ -81,7 +93,7 @@ class Activity {
         case false:
             return updateRecordCoreData(newName: newName, newLocation: newLocation, newLength: newLength, newActivityDate: newActivityDate,newFavorite: newFavorite)
         case true:
-            return updateRecordFirebase()
+            return updateRecordOnCloud(newName: newName, newLocation: newLocation, newLength: newLength, newActivityDate: newActivityDate,newFavorite: newFavorite)
         }
     }
     
@@ -124,30 +136,29 @@ class Activity {
         return true
     }
     
-    private func updateRecordFirebase() -> Bool {
-//        var postData = {
-//            "name": self.Name,
-//            "location": self.Location,
-//            "length": self.Length,
-//            "activitydate": self.ActivityDate,
-//            "isfavorite": self.IsFavorite == true? "true" : "false"
-//        };
-//
-//        // Get a key for a new Post.
-//        var newPostKey = Database.database().reference().child("Records").key;
-//
-//        // Write the new post's data simultaneously in the posts list and the user's post list.
-//        var updates = {};
-//        updates['/posts/' + newPostKey] = postData;
-//        updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-//
-//        return firebase.database().ref().update(updates)
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "ddMMyyyyhhmm"
-//        var date = formatter.string(from: self.ActivityDate)
-//        Database.database().reference().child("/Records/" + "\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)")
-//        .set({ title: "New title", body: "This is the new body" });
-        return false
+    private func updateRecordOnCloud(newName: String?, newLocation: String?, newLength: String?, newActivityDate: Date?, newFavorite: Bool?) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyyhhmm"
+        let date = formatter.string(from: self.ActivityDate)
+        formatter.dateFormat = "dd.MM.yyyy hh:mm"
+        let dateAgain = formatter.string(from: self.ActivityDate)
+        if newName == nil && newLength == nil && newLocation == nil && newActivityDate == nil && newFavorite != nil {
+            Database.database().reference().child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)").updateChildValues([ "isfavorite" : newFavorite! ? "true" : "false"])
+            self.IsFavorite = !self.IsFavorite
+            return true
+        }
+        if newName == self.Name && newActivityDate == self.ActivityDate {
+            Database.database().reference().child("Records").child("\(self.Name.replacingOccurrences(of: " ", with: "-"))_\(date)").updateChildValues(["name" : newName!, "location" : newLocation!, "length" : newLength!, "isfavorite" : newFavorite! ? "true" : "false", "activitydate" : dateAgain])
+        }else{
+            storeDataOnCloud(newName: newName, newLocation: newLocation, newLength: newLength, newActivityDate: newActivityDate, newFavorite: newFavorite)
+            deleteObjectFromCloud()
+            self.Name = newName!
+            self.ActivityDate = newActivityDate!
+        }
+        self.Location = newLocation!
+        self.Length = newLength!
+        self.IsFavorite = newFavorite!
+        return true
     }
     
     static func deleteRecordFromCoreData(activity: Activity, context: NSManagedObjectContext) {

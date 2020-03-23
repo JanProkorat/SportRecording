@@ -48,8 +48,6 @@ class NewActivityController: UIViewController{
         isFavorite = !isFavorite
         if isFavorite {
             btn_setFavorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        }else{
-            //btn_setFavorite.setImage(UIImage(systemName: "star"), for: .normal)
         }
     }
     
@@ -64,7 +62,7 @@ class NewActivityController: UIViewController{
             case false:
                 activity.insertRecordToCoreData(entity: recordEntity, context: managedContext) ? displayMessage(message: "Activity record successfully saved") : displayMessage(message: "Could not save record")
             case true:
-                activity.storeDataOnCloud()
+                activity.storeDataOnCloud(newName: nil, newLocation: nil, newLength: nil, newActivityDate: nil, newFavorite: nil)
             displayMessage(message: "Activity record successfully saved")
         }
         resetControls()

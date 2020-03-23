@@ -12,10 +12,6 @@ import Firebase
 
 class ViewController: UIViewController {
     
-    var activities = [Activity]()
-    
-    var records = [Activity]()
-    
     @IBOutlet weak var btn_NewActivity: UIButton!
     @IBOutlet weak var btn_PreviousActivities: UIButton!
     

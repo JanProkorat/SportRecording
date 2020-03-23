@@ -48,7 +48,7 @@
                                 <rect key="frame" x="40" y="668" width="295" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-cz-mHL">
-                                        <rect key="frame" x="0.0" y="0.0" width="139" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kn0-Qp-2CV"/>
                                             <constraint firstAttribute="width" constant="140" id="mFx-v7-Av1"/>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfY-gF-vmj">
-                                        <rect key="frame" x="155" y="0.0" width="140" height="40"/>
+                                        <rect key="frame" x="156" y="0.0" width="139" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Jym-Jp-K3k"/>
                                             <constraint firstAttribute="width" constant="140" id="Qi0-9W-abr"/>
@@ -234,6 +234,8 @@
                                         <rect key="frame" x="82.666666666666657" y="0.0" width="280.33333333333337" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="HTT-b2-p0C"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="fp0-gQ-MEN"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280.32999999999998" id="lHy-bc-fCf"/>
                                             <constraint firstAttribute="width" constant="280.32999999999998" id="v0c-iY-gzN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -257,6 +259,8 @@
                                         <rect key="frame" x="82.666666666666657" y="2" width="280.33333333333337" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Rkz-lu-D9u"/>
+                                            <constraint firstAttribute="width" constant="280.32999999999998" id="ZTb-py-oUx"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="tZl-gJ-oqP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -311,8 +315,7 @@
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="save_Clicked:" destination="vPG-Na-cM9" eventType="touchUpInside" id="M8u-nI-Os3"/>
-                                    <action selector="save_Clicked:" destination="HZF-FM-qw6" eventType="touchUpInside" id="Uir-de-XvF"/>
+                                    <action selector="save_Clicked:" destination="HZF-FM-qw6" eventType="touchUpInside" id="tbb-gm-3rD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34F-r0-0er">
@@ -363,7 +366,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_edit" destination="SLN-Hq-Jo5" id="ap0-Zy-W7v"/>
-                        <outlet property="btn_save" destination="jKR-MW-ai9" id="Hzv-OK-SWr"/>
+                        <outlet property="btn_save" destination="jKR-MW-ai9" id="M5b-yB-IOQ"/>
                         <outlet property="dp_activityDate" destination="wlZ-Xx-fzH" id="TrN-fQ-svH"/>
                         <outlet property="dp_length" destination="jwY-Hq-azi" id="v0w-5K-EQz"/>
                         <outlet property="sw_favorite" destination="e5b-ai-lS3" id="Gx2-D8-yBe"/>
@@ -387,7 +390,7 @@
                                 <rect key="frame" x="2" y="93" width="371" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name of activity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1VZ-GN-C37">
-                                        <rect key="frame" x="0.0" y="0.0" width="371" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="371" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="1Ns-ly-TIw"/>
                                         </constraints>
@@ -395,7 +398,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adl-C4-vo0">
-                                        <rect key="frame" x="0.0" y="52" width="371" height="48"/>
+                                        <rect key="frame" x="0.0" y="56" width="371" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="R2V-vh-58n"/>
                                         </constraints>
